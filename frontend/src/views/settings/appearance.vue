@@ -1,7 +1,6 @@
 <template>
   <div class="items">
-    <b-tabs type="is-boxed" :animated="false" v-model="activeTab">
-      <!-- eslint-disable-next-line max-len -->
+    <b-tabs :animated="false" v-model="activeTab">
       <b-tab-item :label="$t('settings.appearance.admin.name')" label-position="on-border">
         <div class="block">
           <p>
@@ -10,14 +9,11 @@
         </div>
         <br /><br />
 
-        <!-- eslint-disable-next-line max-len -->
         <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border" :message="$t('settings.appearance.cssHelp')">
-          <!-- eslint-disable-next-line max-len -->
-          <b-input v-model="data['appearance.admin.custom_css']" type="textarea" name="body" />
+            <b-input v-model="data['appearance.admin.custom_css']" type="textarea" name="body" />
         </b-field>
       </b-tab-item><!-- admin -->
 
-      <!-- eslint-disable-next-line max-len -->
       <b-tab-item :label="$t('settings.appearance.public.name')" label-position="on-border">
         <div class="block">
           <p>
@@ -26,20 +22,15 @@
         </div>
         <br /><br />
 
-        <!-- eslint-disable-next-line max-len -->
         <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border" :message="$t('settings.appearance.cssHelp')">
-          <!-- eslint-disable-next-line max-len -->
-          <b-input v-model="data['appearance.public.custom_css']" type="textarea" name="body" />
+            <b-input v-model="data['appearance.public.custom_css']" type="textarea" name="body" />
         </b-field>
 
-        <!-- eslint-disable-next-line max-len -->
         <b-field :label="$t('settings.appearance.customJS')" label-position="on-border" :message="$t('settings.appearance.jsHelp')">
-          <!-- eslint-disable-next-line max-len -->
-          <b-input v-model="data['appearance.public.custom_js']" type="textarea" name="body" />
+            <b-input v-model="data['appearance.public.custom_js']" type="textarea" name="body" />
         </b-field>
       </b-tab-item><!-- public -->
 
-      <!-- eslint-disable-next-line max-len -->
       <b-tab-item :label="$t('settings.appearance.templates.name')" label-position="on-border">
         <p>
           {{ $t('settings.appearance.templates.help') }}
@@ -54,37 +45,30 @@
         <div class="columns is-vcentered">
           <div class="column">
             <b-select v-model="activeTemplate">
-              <!-- eslint-disable-next-line max-len -->
-              <option v-for="template in definedTemplates" :value="template" :key="template">{{template}}</option>
+                    <option v-for="template in definedTemplates" :value="template" :key="template">{{template}}</option>
             </b-select>
           </div>
           <div class="column is-narrow">
             <div class="columns">
               <div class="column is-narrow">
-                <!-- eslint-disable-next-line max-len -->
-                <b-button type="is-primary is-light" size="is-small" icon-left="eye-outline" @click.prevent="showTemplate(activeTemplate)">{{ $t('globals.buttons.showDefault') }}</b-button>
+                        <b-button type="is-primary is-light" size="is-small" icon-left="eye-outline" @click.prevent="showTemplate(activeTemplate)">{{ $t('globals.buttons.showDefault') }}</b-button>
               </div>
               <div class="column is-narrow">
-                <!-- eslint-disable-next-line max-len -->
-                <b-button type="is-primary" size="is-small" icon-left="file-find-outline" @click.prevent="showPreview()">{{ $t('globals.buttons.preview') }}</b-button>
+                        <b-button type="is-primary" size="is-small" icon-left="file-find-outline" @click.prevent="showPreview()">{{ $t('globals.buttons.preview') }}</b-button>
               </div>
             </div>
           </div>
         </div>
-        <!-- eslint-disable-next-line max-len -->
         <b-field :label="$t('settings.appearance.customTemplate')" label-position="on-border" :message="$t('settings.appearance.templates.templateHelp')">
-          <!-- eslint-disable-next-line max-len -->
-          <b-input v-model="data[`appearance.admin.custom_templates.${activeTemplate}`]" type="textarea" name="body" />
+            <b-input v-model="data[`appearance.admin.custom_templates.${activeTemplate}`]" type="textarea" name="body" />
         </b-field>
 
         <!-- show default modal -->
-        <!-- eslint-disable-next-line max-len -->
         <b-modal scroll="keep" :aria-modal="true" :active.sync="isDefaultViewerVisible" :maxwidth="1200">
           <appearance-default-viewer :defaultName="defaultName" :defaultBody="defaultBody" />
         </b-modal>
 
         <!-- show preview -->
-        <!-- eslint-disable-next-line max-len -->
         <appearance-notif-preview v-if="previewTitle" :previewTitle="previewTitle" :previewURL="previewURL" @close="closePreview"></appearance-notif-preview>
       </b-tab-item><!-- notifications -->
     </b-tabs>

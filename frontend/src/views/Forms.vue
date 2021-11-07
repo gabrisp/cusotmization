@@ -37,7 +37,6 @@
           {{ $t('forms.formHTMLHelp') }}
         </p>
 
-        <!-- eslint-disable max-len -->
         <pre v-if="checked.length > 0">&lt;form method=&quot;post&quot; action=&quot;{{ settings['app.root_url'] }}/subscription/form&quot; class=&quot;listmonk-form&quot;&gt;
     &lt;div&gt;
         &lt;h3&gt;Subscribe&lt;/h3&gt;

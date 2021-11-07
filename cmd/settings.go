@@ -494,7 +494,6 @@ func GenerateEmailTemplate(app *App, tplName string, data interface{}) ([]byte, 
 
 	var b bytes.Buffer
 	if err := dupTpl.ExecuteTemplate(&b, tplName, data); err != nil {
-		app.log.Printf("error generating notification template '%s': %v", tplName, err)
 		return nil, err
 	}
 

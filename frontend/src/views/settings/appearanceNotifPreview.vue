@@ -9,7 +9,6 @@
         </div>
         <section expanded class="modal-card-body preview">
           <b-loading :active="isLoading" :is-full-page="false"></b-loading>
-          <!-- eslint-disable-next-line max-len -->
           <iframe id="iframe" name="iframe" ref="iframe" :title="previewTitle" :src="previewURL"></iframe>
         </section>
         <footer class="modal-card-foot has-text-right">
