@@ -10,7 +10,7 @@
         <br /><br />
 
         <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border" :message="$t('settings.appearance.cssHelp')">
-            <b-input v-model="data['appearance.admin.custom_css']" type="textarea" name="body" />
+          <appearance-editor v-model="data['appearance.admin.custom_css']" name="body" language="css" />
         </b-field>
       </b-tab-item><!-- admin -->
 
@@ -23,11 +23,11 @@
         <br /><br />
 
         <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border" :message="$t('settings.appearance.cssHelp')">
-            <b-input v-model="data['appearance.public.custom_css']" type="textarea" name="body" />
+          <appearance-editor v-model="data['appearance.public.custom_css']" name="body" language="css" />
         </b-field>
 
         <b-field :label="$t('settings.appearance.customJS')" label-position="on-border" :message="$t('settings.appearance.jsHelp')">
-            <b-input v-model="data['appearance.public.custom_js']" type="textarea" name="body" />
+          <appearance-editor v-model="data['appearance.public.custom_js']" name="body" language="javascript" />
         </b-field>
       </b-tab-item><!-- public -->
 
@@ -45,22 +45,22 @@
         <div class="columns is-vcentered">
           <div class="column">
             <b-select v-model="activeTemplate">
-                    <option v-for="template in definedTemplates" :value="template" :key="template">{{template}}</option>
+              <option v-for="template in definedTemplates" :value="template" :key="template">{{template}}</option>
             </b-select>
           </div>
           <div class="column is-narrow">
             <div class="columns">
               <div class="column is-narrow">
-                        <b-button type="is-primary is-light" size="is-small" icon-left="eye-outline" @click.prevent="showTemplate(activeTemplate)">{{ $t('globals.buttons.showDefault') }}</b-button>
+                <b-button type="is-primary is-light" size="is-small" icon-left="eye-outline" @click.prevent="showTemplate(activeTemplate)">{{ $t('globals.buttons.showDefault') }}</b-button>
               </div>
               <div class="column is-narrow">
-                        <b-button type="is-primary" size="is-small" icon-left="file-find-outline" @click.prevent="showPreview()">{{ $t('globals.buttons.preview') }}</b-button>
+                <b-button type="is-primary" size="is-small" icon-left="file-find-outline" @click.prevent="showPreview()">{{ $t('globals.buttons.preview') }}</b-button>
               </div>
             </div>
           </div>
         </div>
         <b-field :label="$t('settings.appearance.customTemplate')" label-position="on-border" :message="$t('settings.appearance.templates.templateHelp')">
-            <b-input v-model="data[`appearance.admin.custom_templates.${activeTemplate}`]" type="textarea" name="body" />
+          <appearance-editor v-model="data[`appearance.admin.custom_templates.${activeTemplate}`]" name="body" language="html" />
         </b-field>
 
         <!-- show default modal -->
@@ -78,6 +78,7 @@
 <script>
 import Vue from 'vue';
 import { mapState } from 'vuex';
+import AppearanceEditor from '../../components/AppearanceEditor.vue';
 import AppearanceDefaultViewer from './appearanceDefaultViewer.vue';
 import AppearanceNotifPreview from './appearanceNotifPreview.vue';
 
@@ -85,6 +86,7 @@ export default Vue.extend({
   components: {
     AppearanceDefaultViewer,
     AppearanceNotifPreview,
+    'appearance-editor': AppearanceEditor,
   },
 
   props: {
