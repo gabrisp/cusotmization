@@ -4,6 +4,8 @@ frontend/yarn.lock
 frontend/build/
 .vscode/
 
+*.DS_Store
+
 config.toml
 node_modules
 listmonk
