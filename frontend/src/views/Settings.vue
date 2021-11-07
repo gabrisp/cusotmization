@@ -9,7 +9,6 @@
       </div>
       <div class="column has-text-right">
         <b-field expanded>
-          <!-- eslint-disable-next-line max-len -->
           <b-button expanded :disabled="!hasFormChanged" type="is-primary" icon-left="content-save-outline" @click="onSubmit" class="isSaveEnabled" data-cy="btn-save">
             {{ $t('globals.buttons.save') }}
           </b-button>
@@ -88,7 +87,7 @@ export default Vue.extend({
 
   data() {
     return {
-      // :key="key" is a ack to re-render child components every time settings
+      // :key="key" is a hack to re-render child components every time settings
       // is pulled. Otherwise, props don't react.
       key: 0,
 
