@@ -1,5 +1,24 @@
 /* Import Bulma to set variables */
+
 @import "~bulma/sass/utilities/_all";
+/* import inter-regular - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('assets/icons/inter-v3-latin-regular.woff2') format('woff2'),
+       url('assets/icons/inter-v3-latin-regular.woff') format('woff');
+}
+/* iomport inter-600 - latin */
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('assets/icons/inter-v3-latin-600.woff2') format('woff2'),
+       url('assets/icons/inter-v3-latin-600.woff') format('woff');
+}
 
 $body-family: "Inter", "Helvetica Neue", sans-serif;
 $body-size: 15px;
