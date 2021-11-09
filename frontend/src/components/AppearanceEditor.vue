@@ -71,11 +71,6 @@ export default {
         defaultTheme: false,
       });
 
-      this.flask.onUpdate((v) => {
-        this.data = v;
-        this.$emit('input', v);
-      });
-
       // Set the initial value.
       this.flask.updateCode(body);
     },
@@ -87,6 +82,14 @@ export default {
     } else {
       this.initAppearanceEditor('');
     }
+
+    // Wait for view to finish loading before adding the update listener
+    this.$nextTick(() => {
+      this.flask.onUpdate((v) => {
+        this.data = v;
+        this.$emit('input', v);
+      });
+    });
   },
 
   watch: {
