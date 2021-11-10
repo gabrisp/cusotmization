@@ -9,7 +9,8 @@
         </div>
         <section expanded class="modal-card-body preview">
           <b-loading :active="isLoading" :is-full-page="false"></b-loading>
-          <iframe id="iframe" name="iframe" ref="iframe" :title="previewTitle" :src="previewURL"></iframe>
+          <iframe id="iframe" name="iframe" ref="iframe" :title="previewTitle" :src="previewURL">
+          </iframe>
         </section>
         <footer class="modal-card-foot has-text-right">
           <b-button @click="close">{{ $t('globals.buttons.close') }}</b-button>

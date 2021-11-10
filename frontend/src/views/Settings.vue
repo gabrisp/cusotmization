@@ -9,8 +9,9 @@
       </div>
       <div class="column has-text-right">
         <b-field expanded>
-          <b-button expanded :disabled="!hasFormChanged" type="is-primary" icon-left="content-save-outline" @click="onSubmit" class="isSaveEnabled" data-cy="btn-save">
-            {{ $t('globals.buttons.save') }}
+          <b-button expanded :disabled="!hasFormChanged" type="is-primary"
+          icon-left="content-save-outline" @click="onSubmit" class="isSaveEnabled"
+          data-cy="btn-save">{{ $t('globals.buttons.save') }}
           </b-button>
         </b-field>
       </div>

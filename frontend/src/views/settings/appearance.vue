@@ -9,8 +9,10 @@
         </div>
         <br /><br />
 
-        <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border" :message="$t('settings.appearance.cssHelp')">
-          <appearance-editor v-model="data['appearance.admin.custom_css']" name="body" language="css" />
+        <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border"
+        :message="$t('settings.appearance.cssHelp')">
+          <appearance-editor v-model="data['appearance.admin.custom_css']" name="body"
+          language="css" />
         </b-field>
       </b-tab-item><!-- admin -->
 
@@ -22,12 +24,16 @@
         </div>
         <br /><br />
 
-        <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border" :message="$t('settings.appearance.cssHelp')">
-          <appearance-editor v-model="data['appearance.public.custom_css']" name="body" language="css" />
+        <b-field :label="$t('settings.appearance.customCSS')" label-position="on-border"
+        :message="$t('settings.appearance.cssHelp')">
+          <appearance-editor v-model="data['appearance.public.custom_css']" name="body"
+          language="css" />
         </b-field>
 
-        <b-field :label="$t('settings.appearance.customJS')" label-position="on-border" :message="$t('settings.appearance.jsHelp')">
-          <appearance-editor v-model="data['appearance.public.custom_js']" name="body" language="javascript" />
+        <b-field :label="$t('settings.appearance.customJS')" label-position="on-border"
+        :message="$t('settings.appearance.jsHelp')">
+          <appearance-editor v-model="data['appearance.public.custom_js']" name="body"
+          language="javascript" />
         </b-field>
       </b-tab-item><!-- public -->
 
@@ -45,31 +51,44 @@
         <div class="columns is-vcentered">
           <div class="column">
             <b-select v-model="activeTemplate">
-              <option v-for="template in definedTemplates" :value="template" :key="template">{{template}}</option>
+              <option v-for="template in definedTemplates" :value="template"
+              :key="template">{{template}}
+              </option>
             </b-select>
           </div>
           <div class="column is-narrow">
             <div class="columns">
               <div class="column is-narrow">
-                <b-button type="is-primary is-light" size="is-small" icon-left="eye-outline" @click.prevent="showTemplate(activeTemplate)">{{ $t('globals.buttons.showDefault') }}</b-button>
+                <b-button type="is-primary is-light" size="is-small" icon-left="eye-outline"
+                @click.prevent="showTemplate(activeTemplate)">
+                {{ $t('globals.buttons.showDefault') }}
+                </b-button>
               </div>
               <div class="column is-narrow">
-                <b-button type="is-primary" size="is-small" icon-left="file-find-outline" @click.prevent="showPreview()">{{ $t('globals.buttons.preview') }}</b-button>
+                <b-button type="is-primary" size="is-small" icon-left="file-find-outline"
+                @click.prevent="showPreview()">
+                {{ $t('globals.buttons.preview') }}
+                </b-button>
               </div>
             </div>
           </div>
         </div>
-        <b-field :label="$t('settings.appearance.customTemplate')" label-position="on-border" :message="$t('settings.appearance.templates.templateHelp')">
-          <appearance-editor v-model="data[`appearance.admin.custom_templates.${activeTemplate}`]" name="body" language="html" />
+        <b-field :label="$t('settings.appearance.customTemplate')" label-position="on-border"
+        :message="$t('settings.appearance.templates.templateHelp')">
+          <appearance-editor v-model="data[`appearance.admin.custom_templates.${activeTemplate}`]"
+          name="body" language="html" />
         </b-field>
 
         <!-- show default modal -->
-        <b-modal scroll="keep" :aria-modal="true" :active.sync="isDefaultViewerVisible" :maxwidth="1200">
+        <b-modal scroll="keep" :aria-modal="true" :active.sync="isDefaultViewerVisible"
+        :maxwidth="1200">
           <appearance-default-viewer :defaultName="defaultName" :defaultBody="defaultBody" />
         </b-modal>
 
         <!-- show preview -->
-        <appearance-notif-preview v-if="previewTitle" :previewTitle="previewTitle" :previewURL="previewURL" @close="closePreview"></appearance-notif-preview>
+        <appearance-notif-preview v-if="previewTitle" :previewTitle="previewTitle"
+        :previewURL="previewURL" @close="closePreview">
+        </appearance-notif-preview>
       </b-tab-item><!-- notifications -->
     </b-tabs>
   </div>
